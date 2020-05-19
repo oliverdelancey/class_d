@@ -16,9 +16,9 @@ if __name__ == "__main__":
         description="Get a license from the GitHub API",
         long_description=LONG_DESCRIPTION,
         long_description_content_type="text/markdown",
-        url="https://github.com/oliversandli/class-d",
+        url="https://github.com/oliversandli/class_d",
         packages=["class_d"],
-        scripts=["bin/class-d"],
+        scripts=["bin/class_d"],
         install_requires=[
             "inquirer",
             "requests"
