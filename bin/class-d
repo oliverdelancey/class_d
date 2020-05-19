@@ -41,10 +41,10 @@ def create_credentials():
             validate=lambda _, x: re.match(match, x)
         )
     ]
-    answer = inquirer.prompt(err_question)
-    credentials = {"name": answer["name"]}
-    with open(conf_name, "w") as f:
-        json.dump(credentials, f)
+    cc_answer = inquirer.prompt(err_question)
+    cc_credentials = {"name": cc_answer["name"]}
+    with open(conf_name, "w") as open_file:
+        json.dump(cc_credentials, open_file)
 
 
 if __name__ == "__main__":
