@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+"""get_license v0.1.0"""
+
+import json
+import os
+import re
+
+import inquirer
+import requests
+
+
+def get_license_list():
+    """get a list of current licenses available from GitHub"""
+    response = requests.get("https://api.github.com/licenses")
+    if not response:
+        raise Exception("Could not get 'https://api.github.com/licenses'")
+    return dict(zip([i["spdx_id"] for i in response.json()],
+                    [j["key"] for j in response.json()]))
+
+
+def get_license(key):
+    """get license from GitHub"""
+    response = requests.get(f"https://api.github.com/licenses/{key}")
+    if not response:
+        raise Exception("Could not get 'https://api.github.com/licenses'")
+    body = response.json()["body"].split("\n")
+    print(body)
+
+
+def create_credentials():
+    """create credentials file"""
+    match = (r"^([A-Za-z0-9\\\/_\-]|"
+             r"([A-Za-z0-9\\\/_\-][A"
+             r"-Za-z0-9\\\/_\- ]{0,1"
+             r"8}[A-Za-z0-9\\\/_\-])"
+             r")$")
+    err_question = [
+        inquirer.Text(
+            "name",
+            message="What is your name?",
+            validate=lambda _, x: re.match(match, x)
+        )
+    ]
+    answer = inquirer.prompt(err_question)
+    credentials = {"name": answer["name"]}
+    with open(conf_name, "w") as f:
+        json.dump(credentials, f)
+
+
+if __name__ == "__main__":
+    conf_name = f"{os.getenv('HOME')}/.config/get_license/credentials.json"
+    try:
+        with open(conf_name, "r") as f:
+            credentials = json.load(f)
+    except FileNotFoundError:
+        create_credentials()
+    except json.decoder.JSONDecodeError:
+        create_credentials()
+
+    id_key_dict = get_license_list()
+    question = [
+        inquirer.List(
+            "license",
+            message="Which license?",
+            choices=id_key_dict.keys()
+        )
+    ]
+    answer = inquirer.prompt(question)
+    get_license(answer["license"])
