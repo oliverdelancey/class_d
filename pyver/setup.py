@@ -9,16 +9,16 @@ if __name__ == "__main__":
         LONG_DESCRIPTION = fh.read()
 
     setuptools.setup(
-        name="get_license-oliversandli",
+        name="class_d-oliversandli",
         version="0.0.1",
         author="Oliver Sandli",
         author_email="racerpingpong@gmail.com",
         description="Get a license from the GitHub API",
         long_description=LONG_DESCRIPTION,
         long_description_content_type="text/markdown",
-        url="https://github.com/oliversandli/get_license",
-        packages=["get_license"],
-        scripts=["bin/get_license"],
+        url="https://github.com/oliversandli/class-d",
+        packages=["class_d"],
+        scripts=["bin/class-d"],
         install_requires=[
             "inquirer",
             "requests"

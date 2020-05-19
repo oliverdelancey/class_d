@@ -1,1 +1,1 @@
-# get_license
+# get-license
