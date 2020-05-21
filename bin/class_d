@@ -20,13 +20,6 @@ def create_settings(conf_name):
              r"-Za-z0-9\\\/_\- ]{0,1"
              r"8}[A-Za-z0-9\\\/_\-])"
              r")$")
-    err_question = [
-        inquirer.Text(
-            "name",
-            message="What is your name?",
-            validate=lambda _, x: re.match(match, x)
-        )
-    ]
     cc_answer = inquirer.text(message="Enter your name", validate=lambda _, x: re.match(match, x))
     cc_settings = {"name": cc_answer, "default": ""}
     with open(conf_name, "w") as cc_open_file:
@@ -74,19 +67,11 @@ if __name__ == "__main__":
         if not inquirer.confirm("A LICENSE file already exists. Do you wish to proceed?", default=False):
             sys.exit(1)
     id_key_dict = get_license_list()
-    question = [
-        inquirer.List(
-            "license",
-            message="Which license?",
-            choices=id_key_dict.keys()
-        )
-    ]
     answer = inquirer.list_input("Select a license", choices=id_key_dict.keys())
-    settings = get_settings()
     license_text = get_license(answer)
     license_text_parsed = license_text.split("\n")
+    settings = get_settings()
     license_text_parsed[2] = f"Copyright (c) {time.localtime().tm_year} {settings['name']}"
     license_text = "\n".join(license_text_parsed)
     with open("LICENSE", "w") as open_file:
         open_file.write(license_text)
-    sys.exit(0)
