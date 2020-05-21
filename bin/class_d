@@ -89,6 +89,7 @@ def favorite():
     """create favorite license"""
     create_license(SETTINGS["favorite"])
 
+
 def normal():
     """default behavior"""
     license_list = get_license_list()
@@ -98,6 +99,10 @@ def normal():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="An interactive utility for creating GitHub-style licenses.")
+    parser.add_argument("-v",
+                        "--version",
+                        action="version",
+                        version="class_d v0.1.0")
     parser.add_argument("-f",
                         "--favorite",
                         action="store_true",
