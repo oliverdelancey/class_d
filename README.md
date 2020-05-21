@@ -6,7 +6,7 @@
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 ![license](https://img.shields.io/badge/license-MIT-blue)
 
-An interactive utility for creating GitHub-style licenses with date and name.
+An interactive utility for creating GitHub-style licenses locally with date and name.
 
 ## Requirements
 
