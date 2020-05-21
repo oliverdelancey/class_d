@@ -4,9 +4,10 @@ An interactive utility for creating GitHub-style licenses.
 
 ## TODO
 
-- [ ] Add `-d` flag to use default license.
+- [X] Add `-f` flag to use favorite license.
 - [ ] Complete documentation in README.
 - [ ] Complete PEP-8 compliance.
-- [ ] Full `argparse` for `--help` and `--version` support.
+- [X] Full `argparse` for `--help` support.
+- [ ] Add proper module-level dunders, such as `__author__` and `__version__`.
 - [X] Provide library for useful functions.
 - [ ] Distribute on `pip`.
