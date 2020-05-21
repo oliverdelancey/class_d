@@ -17,5 +17,5 @@ def get_license(key):
     """get license from GitHub"""
     response = requests.get(f"https://api.github.com/licenses/{key}")
     if not response:
-        raise Exception("Could not get 'https://api.github.com/licenses'")
+        raise Exception(f"Could not get 'https://api.github.com/licenses{key}'")
     return response.json()["body"]
