@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: class-d-oliversandli
-Version: 0.0.1
+Version: 0.1.0
 Summary: Get a license from the GitHub API
 Home-page: https://github.com/oliversandli/class_d
 Author: Oliver Sandli
@@ -26,7 +26,11 @@ Description: # class_d
         
         ## Installation
         
-        `pip install` coming soon!
+        ```bash
+        python -m pip install class-d-oliversandli
+        ```
+        
+        Note that installation with `sudo` will add `class_d` to `/usr/local/bin`. Without `sudo`, `pip` installs scripts to `~/.local/bin`. Many Linux distros do not have `~/.local/bin` already in their path, so to use `class_d` after a `sudo`-less install, add `~/.local/bin` to your `PATH` variable.
         
         ## Setup
         
@@ -93,10 +97,10 @@ Description: # class_d
         
         - [X] Add `-f` flag to use favorite license.
         - [X] Complete documentation in README.
-        - [ ] Complete PEP-8 compliance.
+        - [X] Complete PEP-8 compliance.
         - [X] Full `argparse` for `--help` support.
         - [X] Provide library for useful functions.
-        - [ ] Distribute on `pip`.
+        - [X] Distribute on `pip`.
         
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
