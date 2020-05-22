@@ -18,7 +18,11 @@ An interactive utility for creating GitHub-style licenses locally with date and 
 
 ## Installation
 
-`pip install` coming soon!
+```bash
+python -m pip install class-d-oliversandli
+```
+
+Note that installation with `sudo` will add `class_d` to `/usr/local/bin`. Without `sudo`, `pip` installs scripts to `~/.local/bin`. Many Linux distros do not have `~/.local/bin` already in their path, so to use `class_d` after a `sudo`-less install, add `~/.local/bin` to your `PATH` variable.
 
 ## Setup
 
@@ -88,4 +92,4 @@ get_license("mit")
 - [ ] Complete PEP-8 compliance.
 - [X] Full `argparse` for `--help` support.
 - [X] Provide library for useful functions.
-- [ ] Distribute on `pip`.
+- [X] Distribute on `pip`.
