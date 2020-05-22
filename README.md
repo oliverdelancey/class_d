@@ -89,7 +89,7 @@ get_license("mit")
 
 - [X] Add `-f` flag to use favorite license.
 - [X] Complete documentation in README.
-- [ ] Complete PEP-8 compliance.
+- [X] Complete PEP-8 compliance.
 - [X] Full `argparse` for `--help` support.
 - [X] Provide library for useful functions.
 - [X] Distribute on `pip`.

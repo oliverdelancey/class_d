@@ -22,8 +22,15 @@ def init_settings(conf):
              r"-Za-z0-9\\\/_\- ]{0,1"
              r"8}[A-Za-z0-9\\\/_\-])"
              r")$")
-    is_answer = inquirer.text(message="Enter your name", validate=lambda _, x: re.match(match, x))
-    is_choice = inquirer.list_input("Select your favorite license", choices=get_license_list().keys())
+    is_answer = inquirer.text(
+        message="Enter your name",
+        validate=lambda _,
+        x: re.match(
+            match,
+            x))
+    is_choice = inquirer.list_input(
+        "Select your favorite license",
+        choices=get_license_list().keys())
     is_settings = {"name": is_answer, "favorite": is_choice}
     with open(conf, "w") as ws_open_file:
         json.dump(is_settings, ws_open_file)
@@ -68,14 +75,17 @@ def get_license(key):
     """get license from GitHub"""
     response = requests.get(f"https://api.github.com/licenses/{key}")
     if not response:
-        raise Exception(f"Could not get 'https://api.github.com/licenses/{key}'")
+        raise Exception(
+            f"Could not get 'https://api.github.com/licenses/{key}'")
     return response.json()["body"]
 
 
 def create_license(key):
     """create a license file"""
     if os.path.exists("LICENSE"):
-        if not inquirer.confirm("A LICENSE file already exists. Do you wish to proceed?", default=False):
+        if not inquirer.confirm(
+            "A LICENSE file already exists. Do you wish to proceed?",
+                default=False):
             sys.exit(1)
     license_text = get_license(key)
     license_text_parsed = license_text.split("\n")
@@ -93,12 +103,15 @@ def favorite():
 def normal():
     """default behavior"""
     license_list = get_license_list()
-    answer = inquirer.list_input("Select a license", choices=license_list.keys())
+    answer = inquirer.list_input(
+        "Select a license",
+        choices=license_list.keys())
     create_license(license_list[answer])
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="An interactive utility for creating GitHub-style licenses.")
+    parser = argparse.ArgumentParser(
+        description="An interactive utility for creating GitHub-style licenses.")
     parser.add_argument("-v",
                         "--version",
                         action="version",
