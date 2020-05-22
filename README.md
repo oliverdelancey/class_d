@@ -40,7 +40,7 @@ class_d
 
 Create a `LICENSE` file specified by `"favorite"` in `~/.config/class_d/settings.json`.
 
-## `class_d` as a Library
+### `class_d` as a Library
 
 ```python
 #!/usr/bin/env python3
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     specific_license = class_d.get_license(license_list["MIT"])
 ```
 
-### `get_license_list()`
+#### `get_license_list()`
 
 Return a dictionary of license names and GitHub API keys from https://api.github.com/licenses.
 
@@ -73,7 +73,7 @@ Return a dictionary of license names and GitHub API keys from https://api.github
  'Unlicense': 'unlicense'}
 ```
 
-### `get_license(key)`
+#### `get_license(key)`
 
 Return the `body` of a license from `https://api.github.com/licenses/{key}`.
 
