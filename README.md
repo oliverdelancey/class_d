@@ -87,6 +87,7 @@ get_license("mit")
 
 ## TODO
 
+- [ ] Add `Ctrl-C` handling to prevent messy cancels.
 - [X] Add `-f` flag to use favorite license.
 - [X] Complete documentation in README.
 - [X] Complete PEP-8 compliance.
