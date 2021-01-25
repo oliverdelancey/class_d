@@ -90,5 +90,3 @@ get_license("mit")
 - [X] Complete documentation in README.
 - [X] Complete PEP-8 compliance.
 - [X] Full `argparse` for `--help` support.
-- [X] Provide library for useful functions.
-- [X] Distribute on `pip`.
