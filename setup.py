@@ -11,7 +11,7 @@ setuptools.setup(
     name="class_d-oliversandli",
     version="0.1.0",
     author="Oliver Sandli",
-    author_email="racerpingpong@gmail.com",
+    author_email="authoremail@gmail.com",
     description="Get a license from the GitHub API",
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
